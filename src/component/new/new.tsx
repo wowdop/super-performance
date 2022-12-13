@@ -1,5 +1,6 @@
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
+import type { MouseEventHandler } from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Coords } from '../../common/type'
 import * as S from './new.style'
@@ -11,6 +12,8 @@ import type * as T from './new.type'
 // boxSize = 4 // normal speed x 20
 const boxSize = 2 // min 1, max 4
 const iconSize = 48
+
+type MH = MouseEventHandler<HTMLDivElement> & ((e: MouseEvent) => void)
 
 const getPoint = (x: number, boxSize: number) =>
   ~~x % boxSize ? ~~x - (~~x % boxSize) : ~~x
@@ -93,7 +96,8 @@ const New = ({ list }: T.New) => {
     }
   }, [xy])
 
-  const handleClick = useCallback(
+  // MouseEventHandler<HTMLDivElement> & ((e: MouseEvent) => void)
+  const handleClick: MH =
     (e) => {
       const { clientX, clientY } = e
 
@@ -109,9 +113,7 @@ const New = ({ list }: T.New) => {
             clientY <= y + iconSize + xy.y
         )
       )
-    },
-    [xy]
-  )
+    }
 
   // console.log('xy')
   // console.log(xy, xMin, xMax, yMin)

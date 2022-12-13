@@ -36,7 +36,7 @@ const SmartMapRenderer = ({ showNew = false }: { showNew?: boolean }) => {
         (Math.random() > 0.5 ? 1 : -1)
       ),
       type: i % 2 ? "buildings" : "trophy",
-    }));
+    })) as Coords[];
 
     set(list);
   }, [howMany, count]);

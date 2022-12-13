@@ -1,3 +1,4 @@
+import type { MouseEventHandler } from "react";
 import type { Coords } from "../../common/type";
 
 export interface New {
@@ -5,4 +6,5 @@ export interface New {
   mouse?: boolean;
   width?: number;
   height?: number;
+  onClick?: MouseEventHandler<HTMLDivElement> & ((e: MouseEvent) => void);
 }
