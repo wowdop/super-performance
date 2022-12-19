@@ -28,10 +28,12 @@ export const Home = ({}: RouteComponentProps) => {
             <button onClick={() => change('old')}>Old</button>
           </td>
           <td>
-            <button onClick={() => change('super-performance')}>New</button>
+            <button onClick={() => change('super-performance')}>
+              Wow performance
+            </button>
           </td>
           <td>
-            <button onClick={() => change('mega-svg')}>SVG</button>
+            <button onClick={() => change('mega-svg')}>Job Performance</button>
           </td>
         </tr>
       </table>
